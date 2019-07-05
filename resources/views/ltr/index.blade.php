@@ -243,34 +243,8 @@
             <!-- ============================================================== -->
             <!-- Email campaign chart -->
             <!-- ============================================================== -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title m-b-0">System infor</h4>
-                            <h2 class="font-light"></h2>
-                            <div class="m-t-30">
-                                <div class="row text-center">
-                                    <div class="col-6 border-right">
-                                        <h4 class="m-b-0">58</h4>
-                                        <span class="font-14 text-muted">Users</span>
-                                    </div>
-                                    <div class="col-6">
-                                        <h4 class="m-b-0">42</h4>
-                                        <span class="font-14 text-muted">Post Liked</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="app">
-                        <addaccountfb-component></addaccountfb-component>
-                    </div>
-                </div>
+            <div id="app">
+                <addaccountfb-component></addaccountfb-component>
             </div>
             <div class="row">
                 <!-- column -->

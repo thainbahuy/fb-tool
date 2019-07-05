@@ -1,33 +1,67 @@
 <template>
-    <div class="card">
-        <div v-if="isDisplay == 1" class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>{{noti}}</strong>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title m-b-0">System infor</h4>
+                        <h2 class="font-light"></h2>
+                        <div class="m-t-30">
+                            <div class="row text-center">
+                                <div class="col-6 border-right">
+                                    <h4 class="m-b-0">58</h4>
+                                    <span class="font-14 text-muted">Users</span>
+                                </div>
+                                <div class="col-6">
+                                    <h4 class="m-b-0">42</h4>
+                                    <span class="font-14 text-muted">Post Liked</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <form>
-                <div class="form-group row">
-                    <label for="InputName">Name:</label>
-                    <input name="Name" data-vv-validate-on="none" v-validate="{ required: true , min :6 }" type="text" class="form-control"
-                           v-model="name" id="InputName" aria-describedby="emailHelp"
-                           placeholder="Enter Name Account">
-                    <span  v-show="errors.has('Name')" class="help is-danger">{{ errors.first('Name') }}</span>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div v-if="isDisplay == 1" class="alert alert-success alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <strong>{{noti}}</strong>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="InputName">Name:</label>
+                                <input name="Name" data-vv-validate-on="none" v-validate="{ required: true , min :6 }"
+                                       type="text" class="form-control"
+                                       v-model="name" id="InputName" aria-describedby="emailHelp"
+                                       placeholder="Enter Name Account">
+                                <span v-show="errors.has('Name')"
+                                      class="help is-danger">{{ errors.first('Name') }}</span>
 
+                            </div>
+                            <div class="form-group row">
+                                <label for="InputToken">Access Token:</label>
+                                <input name="AccessToken" data-vv-validate-on="none" v-validate="{ required: true, }"
+                                       type="text" class="form-control"
+                                       v-model="accesstoken" id="InputToken"
+                                       placeholder="Enter Access Token">
+                                <span v-show="errors.has('AccessToken')"
+                                      class="help is-danger">{{ errors.first('AccessToken') }}</span>
+                            </div>
+                            <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add new
+                                Account
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group row">
-                    <label for="InputToken">Access Token:</label>
-                    <input name="AccessToken" data-vv-validate-on="none" v-validate="{ required: true, }" type="text" class="form-control"
-                           v-model="accesstoken" id="InputToken"
-                           placeholder="Enter Access Token">
-                    <span v-show="errors.has('AccessToken')"
-                          class="help is-danger">{{ errors.first('AccessToken') }}</span>
-                </div>
-                <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add new Account</button>
-            </form>
+            </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -75,7 +109,11 @@
 </script>
 
 <style scoped>
-.is-danger {
-    color: red;
-}
+    .is-danger {
+        color: red;
+    }
+    .container{
+        padding-right: 0;
+        padding-left: 0;
+    }
 </style>

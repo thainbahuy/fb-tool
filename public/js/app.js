@@ -1729,6 +1729,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //isDisplay = 1 (show), = 0 (hidden)
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -6264,7 +6298,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.is-danger[data-v-edad3e44] {\n    color: red;\n}\n", ""]);
+exports.push([module.i, "\n.is-danger[data-v-edad3e44] {\n    color: red;\n}\n.container[data-v-edad3e44]{\n    padding-right: 0;\n    padding-left: 0;\n}\n", ""]);
 
 // exports
 
@@ -48852,149 +48886,204 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "card" }, [
-    _vm.isDisplay == 1
-      ? _c(
-          "div",
-          {
-            staticClass: "alert alert-success alert-dismissible fade show",
-            attrs: { role: "alert" }
-          },
-          [_vm._m(0), _vm._v(" "), _c("strong", [_vm._v(_vm._s(_vm.noti))])]
-        )
-      : _vm._e(),
+  return _c("div", { staticClass: "container" }, [
+    _vm._m(0),
     _vm._v(" "),
-    _c("div", { staticClass: "card-body" }, [
-      _c("form", [
-        _c("div", { staticClass: "form-group row" }, [
-          _c("label", { attrs: { for: "InputName" } }, [_vm._v("Name:")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "validate",
-                rawName: "v-validate",
-                value: { required: true, min: 6 },
-                expression: "{ required: true , min :6 }"
-              },
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.name,
-                expression: "name"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              name: "Name",
-              "data-vv-validate-on": "none",
-              type: "text",
-              id: "InputName",
-              "aria-describedby": "emailHelp",
-              placeholder: "Enter Name Account"
-            },
-            domProps: { value: _vm.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.name = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              directives: [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm.isDisplay == 1
+            ? _c(
+                "div",
                 {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.errors.has("Name"),
-                  expression: "errors.has('Name')"
-                }
-              ],
-              staticClass: "help is-danger"
-            },
-            [_vm._v(_vm._s(_vm.errors.first("Name")))]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-group row" }, [
-          _c("label", { attrs: { for: "InputToken" } }, [
-            _vm._v("Access Token:")
-          ]),
+                  staticClass:
+                    "alert alert-success alert-dismissible fade show",
+                  attrs: { role: "alert" }
+                },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c("strong", [_vm._v(_vm._s(_vm.noti))])
+                ]
+              )
+            : _vm._e(),
           _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "validate",
-                rawName: "v-validate",
-                value: { required: true },
-                expression: "{ required: true, }"
-              },
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.accesstoken,
-                expression: "accesstoken"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: {
-              name: "AccessToken",
-              "data-vv-validate-on": "none",
-              type: "text",
-              id: "InputToken",
-              placeholder: "Enter Access Token"
-            },
-            domProps: { value: _vm.accesstoken },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.accesstoken = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "span",
-            {
-              directives: [
+          _c("div", { staticClass: "card-body" }, [
+            _c("form", [
+              _c("div", { staticClass: "form-group row" }, [
+                _c("label", { attrs: { for: "InputName" } }, [_vm._v("Name:")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: { required: true, min: 6 },
+                      expression: "{ required: true , min :6 }"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.name,
+                      expression: "name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "Name",
+                    "data-vv-validate-on": "none",
+                    type: "text",
+                    id: "InputName",
+                    "aria-describedby": "emailHelp",
+                    placeholder: "Enter Name Account"
+                  },
+                  domProps: { value: _vm.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.name = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("Name"),
+                        expression: "errors.has('Name')"
+                      }
+                    ],
+                    staticClass: "help is-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("Name")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-group row" }, [
+                _c("label", { attrs: { for: "InputToken" } }, [
+                  _vm._v("Access Token:")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "validate",
+                      rawName: "v-validate",
+                      value: { required: true },
+                      expression: "{ required: true, }"
+                    },
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.accesstoken,
+                      expression: "accesstoken"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    name: "AccessToken",
+                    "data-vv-validate-on": "none",
+                    type: "text",
+                    id: "InputToken",
+                    placeholder: "Enter Access Token"
+                  },
+                  domProps: { value: _vm.accesstoken },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.accesstoken = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c(
+                  "span",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.errors.has("AccessToken"),
+                        expression: "errors.has('AccessToken')"
+                      }
+                    ],
+                    staticClass: "help is-danger"
+                  },
+                  [_vm._v(_vm._s(_vm.errors.first("AccessToken")))]
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
                 {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.errors.has("AccessToken"),
-                  expression: "errors.has('AccessToken')"
-                }
-              ],
-              staticClass: "help is-danger"
-            },
-            [_vm._v(_vm._s(_vm.errors.first("AccessToken")))]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                return _vm.validateBeforeSubmit()
-              }
-            }
-          },
-          [_vm._v("Add new Account")]
-        )
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function($event) {
+                      return _vm.validateBeforeSubmit()
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "Add new\n                            Account\n                        "
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "card-title m-b-0" }, [
+              _vm._v("System infor")
+            ]),
+            _vm._v(" "),
+            _c("h2", { staticClass: "font-light" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "m-t-30" }, [
+              _c("div", { staticClass: "row text-center" }, [
+                _c("div", { staticClass: "col-6 border-right" }, [
+                  _c("h4", { staticClass: "m-b-0" }, [_vm._v("58")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "font-14 text-muted" }, [
+                    _vm._v("Users")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6" }, [
+                  _c("h4", { staticClass: "m-b-0" }, [_vm._v("42")]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "font-14 text-muted" }, [
+                    _vm._v("Post Liked")
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
