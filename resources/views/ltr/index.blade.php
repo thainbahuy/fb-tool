@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('web/assets/images/favicon.png')}}">
-    <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
+    <title>The Ultimate Tool</title>
     <link href="{{asset('web/assets/libs/chartist/dist/chartist.min.css')}}" rel="stylesheet">
     <link href="{{asset('web/dist/css/style.min.css')}}" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -94,22 +94,7 @@
                     <!-- ============================================================== -->
                     <!-- Search -->
                     <!-- ============================================================== -->
-                    <li class="nav-item search-box">
-                        <a class="nav-link waves-effect waves-dark" href="javascript:void(0)">
-                            <div class="d-flex align-items-center">
-                                <i class="mdi mdi-magnify font-20 mr-1"></i>
-                                <div class="ml-1 d-none d-sm-block">
-                                    <span>Search</span>
-                                </div>
-                            </div>
-                        </a>
-                        <form class="app-search position-absolute">
-                            <input type="text" class="form-control" placeholder="Search &amp; enter">
-                            <a class="srh-btn">
-                                <i class="ti-close"></i>
-                            </a>
-                        </form>
-                    </li>
+
                 </ul>
                 <!-- ============================================================== -->
                 <!-- Right side toggle and nav items -->
@@ -251,7 +236,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Recent Comments</h4>
+                            <h4 class="card-title">Recent Actions</h4>
                         </div>
                         <div class="comment-widgets" style="height:430px;">
                             <!-- Comment Row -->
@@ -265,99 +250,42 @@
                                     <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
                                     <div class="comment-footer">
                                         <span class="text-muted float-right">April 14, 2016</span>
-                                        <span class="label label-rounded label-primary">Pending</span>
-                                        <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
+                                        <span class="label label-success label-rounded">Liked</span>
+
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row">
-                                <div class="p-2">
-                                    <img src="{{asset('web/assets/images/users/2.jpg')}}" alt="user" width="50"
-                                         class="rounded-circle">
-                                </div>
-                                <div class="comment-text active w-100">
-                                    <h6 class="font-medium">Michael Jorden</h6>
-                                    <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                    <div class="comment-footer ">
-                                        <span class="text-muted float-right">April 14, 2016</span>
-                                        <span class="label label-success label-rounded">Approved</span>
-                                        <span class="action-icons active">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="icon-close"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart text-danger"></i>
-                                                </a>
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comment Row -->
-                            <div class="d-flex flex-row comment-row">
-                                <div class="p-2">
-                                    <img src="{{asset('web/assets/images/users/2.jpg')}}" alt="user" width="50"
-                                         class="rounded-circle">
-                                </div>
-                                <div class="comment-text w-100">
-                                    <h6 class="font-medium">Johnathan Doeting</h6>
-                                    <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-                                    <div class="comment-footer">
-                                        <span class="text-muted float-right">April 14, 2016</span>
-                                        <span class="label label-rounded label-danger">Rejected</span>
-                                        <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Comment Row -->
+                            </div><!-- Comment Row -->
                             <div class="d-flex flex-row comment-row m-t-0">
                                 <div class="p-2">
                                     <img src="{{asset('web/assets/images/users/2.jpg')}}" alt="user" width="50"
                                          class="rounded-circle">
                                 </div>
                                 <div class="comment-text w-100">
-                                    <h6 class="font-medium">Steve Jobs</h6>
+                                    <h6 class="font-medium">James Anderson</h6>
                                     <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
                                     <div class="comment-footer">
                                         <span class="text-muted float-right">April 14, 2016</span>
-                                        <span class="label label-rounded label-primary">Pending</span>
-                                        <span class="action-icons">
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-pencil-alt"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-check"></i>
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="ti-heart"></i>
-                                                </a>
-                                            </span>
+                                        <span class="label label-success label-rounded">Liked</span>
+
+                                    </div>
+                                </div>
+                            </div><!-- Comment Row -->
+                            <div class="d-flex flex-row comment-row m-t-0">
+                                <div class="p-2">
+                                    <img src="{{asset('web/assets/images/users/2.jpg')}}" alt="user" width="50"
+                                         class="rounded-circle">
+                                </div>
+                                <div class="comment-text w-100">
+                                    <h6 class="font-medium">James Anderson</h6>
+                                    <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                    <div class="comment-footer">
+                                        <span class="text-muted float-right">April 14, 2016</span>
+                                        <span class="label label-success label-rounded">Liked</span>
+
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -464,7 +392,7 @@
 <!--chartis chart-->
 {{--<script src="{{asset('web/assets/libs/chartist/dist/chartist.min.js')}}"></script>--}}
 {{--<script src="{{asset('web/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>--}}
-<script src="{{asset('web/dist/js/pages/dashboards/dashboard1.js')}}"></script>
+{{--<script src="{{asset('web/dist/js/pages/dashboards/dashboard1.js')}}"></script>--}}
 
 </body>
 

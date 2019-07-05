@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('ltr/index');
 });
+Route::get('/like', 'HomeController@executeLike');

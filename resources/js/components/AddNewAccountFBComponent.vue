@@ -9,11 +9,11 @@
                         <div class="m-t-30">
                             <div class="row text-center">
                                 <div class="col-6 border-right">
-                                    <h4 class="m-b-0">58</h4>
+                                    <h4 class="m-b-0">{{totalUser}}</h4>
                                     <span class="font-14 text-muted">Users</span>
                                 </div>
                                 <div class="col-6">
-                                    <h4 class="m-b-0">42</h4>
+                                    <h4 class="m-b-0">{{totalPostLike}}</h4>
                                     <span class="font-14 text-muted">Post Liked</span>
                                 </div>
                             </div>
@@ -72,11 +72,16 @@
                 name: '',
                 accesstoken: '',
                 noti: '',
-                isDisplay: 0
+                isDisplay: 0,
+                totalUser: 0,
+                totalPostLike: 0
             }
 
         },
-
+        created() {
+            this.getTotalUser();
+            this.getTotalPostliked();
+        },
         methods: {
             validateBeforeSubmit() {
                 this.$validator.validate().then((result) => {
@@ -97,8 +102,29 @@
                     }
                 }).catch(error => {
                     this.noti = error.response.data;
-                })
+                });
                 this.emptyFormData();
+                this.getTotalUser();
+            },
+            getTotalUser() {
+                axios.get('api/account/get-total')
+                    .then(response => {
+                        if (response.data.status == 200) {
+                            this.totalUser = response.data.total;
+                        }
+                    }).catch(error => {
+                    console.log(error);
+                });
+            },
+            getTotalPostliked() {
+                axios.get('api/post/get-total')
+                    .then(response => {
+                        if (response.data.status == 200) {
+                            this.totalPostLike = response.data.totalPost;
+                        }
+                    }).catch(error => {
+                    console.log(error);
+                });
             },
             emptyFormData() {
                 this.name = '';
@@ -112,7 +138,8 @@
     .is-danger {
         color: red;
     }
-    .container{
+
+    .container {
         padding-right: 0;
         padding-left: 0;
     }

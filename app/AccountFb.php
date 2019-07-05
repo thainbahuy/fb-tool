@@ -9,17 +9,19 @@ class AccountFb extends Model
 {
     public static function getTotalUser()
     {
-        return DB::select('select count(*) as total from account_fb ');
+        return DB::table('account_fb')->count();
     }
 
     public static function getAllToken()
     {
-        return DB::select('select access_token from account_fb ');
+        return DB::select('select id,access_token from account_fb ');
     }
 
-    public static function addToken($name,$token)
+    public static function addToken($name, $token)
     {
-        return DB::insert('insert into account_fb (access_token,name_account) values (?,?)', [$token ,$name]);
+        $today = date('Y-m-d H:i:s');
+        return DB::insert('insert into account_fb (access_token,name_account,created_at,updated_at) values (?,?,?,?)'
+            , [$token, $name, $today,$today]);
     }
 
     public static function deleteTokenInvalid($token)

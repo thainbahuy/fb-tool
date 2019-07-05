@@ -1770,8 +1770,14 @@ __webpack_require__.r(__webpack_exports__);
       name: '',
       accesstoken: '',
       noti: '',
-      isDisplay: 0
+      isDisplay: 0,
+      totalUser: 0,
+      totalPostLike: 0
     };
+  },
+  created: function created() {
+    this.getTotalUser();
+    this.getTotalPostliked();
   },
   methods: {
     validateBeforeSubmit: function validateBeforeSubmit() {
@@ -1798,6 +1804,29 @@ __webpack_require__.r(__webpack_exports__);
         _this2.noti = error.response.data;
       });
       this.emptyFormData();
+      this.getTotalUser();
+    },
+    getTotalUser: function getTotalUser() {
+      var _this3 = this;
+
+      axios.get('api/account/get-total').then(function (response) {
+        if (response.data.status == 200) {
+          _this3.totalUser = response.data.total;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getTotalPostliked: function getTotalPostliked() {
+      var _this4 = this;
+
+      axios.get('api/post/get-total').then(function (response) {
+        if (response.data.status == 200) {
+          _this4.totalPostLike = response.data.totalPost;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
     },
     emptyFormData: function emptyFormData() {
       this.name = '';
@@ -6298,7 +6327,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.is-danger[data-v-edad3e44] {\n    color: red;\n}\n.container[data-v-edad3e44]{\n    padding-right: 0;\n    padding-left: 0;\n}\n", ""]);
+exports.push([module.i, "\n.is-danger[data-v-edad3e44] {\n    color: red;\n}\n.container[data-v-edad3e44] {\n    padding-right: 0;\n    padding-left: 0;\n}\n", ""]);
 
 // exports
 
@@ -48887,7 +48916,43 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _vm._m(0),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-12" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-body" }, [
+            _c("h4", { staticClass: "card-title m-b-0" }, [
+              _vm._v("System infor")
+            ]),
+            _vm._v(" "),
+            _c("h2", { staticClass: "font-light" }),
+            _vm._v(" "),
+            _c("div", { staticClass: "m-t-30" }, [
+              _c("div", { staticClass: "row text-center" }, [
+                _c("div", { staticClass: "col-6 border-right" }, [
+                  _c("h4", { staticClass: "m-b-0" }, [
+                    _vm._v(_vm._s(_vm.totalUser))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "font-14 text-muted" }, [
+                    _vm._v("Users")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-6" }, [
+                  _c("h4", { staticClass: "m-b-0" }, [
+                    _vm._v(_vm._s(_vm.totalPostLike))
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "font-14 text-muted" }, [
+                    _vm._v("Post Liked")
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-12" }, [
@@ -48901,7 +48966,7 @@ var render = function() {
                   attrs: { role: "alert" }
                 },
                 [
-                  _vm._m(1),
+                  _vm._m(0),
                   _vm._v(" "),
                   _c("strong", [_vm._v(_vm._s(_vm.noti))])
                 ]
@@ -49046,44 +49111,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-body" }, [
-            _c("h4", { staticClass: "card-title m-b-0" }, [
-              _vm._v("System infor")
-            ]),
-            _vm._v(" "),
-            _c("h2", { staticClass: "font-light" }),
-            _vm._v(" "),
-            _c("div", { staticClass: "m-t-30" }, [
-              _c("div", { staticClass: "row text-center" }, [
-                _c("div", { staticClass: "col-6 border-right" }, [
-                  _c("h4", { staticClass: "m-b-0" }, [_vm._v("58")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "font-14 text-muted" }, [
-                    _vm._v("Users")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-6" }, [
-                  _c("h4", { staticClass: "m-b-0" }, [_vm._v("42")]),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "font-14 text-muted" }, [
-                    _vm._v("Post Liked")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

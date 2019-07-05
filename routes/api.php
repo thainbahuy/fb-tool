@@ -17,4 +17,6 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 Route::post('account/add','HomeController@addNewAccount');
+Route::get('account/get-total','HomeController@getTotalUser');
+Route::get('post/get-total','HomeController@getTotalPostLiked');
 
