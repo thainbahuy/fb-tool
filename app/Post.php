@@ -27,4 +27,12 @@ class Post extends Model
     {
         return DB::table('post')->truncate();
     }
+
+    public static function getListRecentAction(){
+        return DB::table('post')
+            ->select('account_id','name_account','object_id','post.created_at')
+            ->join('account_fb','account_fb.id','=','post.account_id')
+            ->where(['status' => 'liked'])
+            ->get();
+    }
 }

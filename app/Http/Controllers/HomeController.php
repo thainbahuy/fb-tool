@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AccountFb;
 use App\Post;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
@@ -33,6 +34,12 @@ class HomeController extends Controller
         return response()->json(['totalPost' => $totalPost, 'status' => Response::HTTP_OK], Response::HTTP_OK);
     }
 
+    public function getListRecentAction()
+    {
+        $listAction = Post::getListRecentAction();
+        return response()->json(['listAction' => $listAction, 'status' => Response::HTTP_OK], Response::HTTP_OK);
+    }
+
     public function executeLike()
     {
         //get all token
@@ -40,15 +47,15 @@ class HomeController extends Controller
         foreach ($listTokenAccount as $account) {
             // get all object_id by token
             $listObjectIds = $this->getObjectId($account->access_token);
-            if(!empty($listObjectIds)){
-                foreach ($listObjectIds['data'] as $post){
+            if (!empty($listObjectIds)) {
+                foreach ($listObjectIds['data'] as $post) {
                     $postId = explode('_', $post['id']);
-                    Log::info($postId['1']) ;
+                    Log::info($postId['1']);
                     //check if object_id is not exist in DB then return <=0
-                    if(sizeof(Post::checkObjectidIsLiked($post['id'] , $account->id)) <= 0){
-                        $this->likeObjectId($postId['1'] , $account->access_token);
-                        Log::info('like object_id : '.$postId['1']);
-                        Post::saveObjectidLiked($postId['1'] , $account->id);
+                    if (sizeof(Post::checkObjectidIsLiked($post['id'], $account->id)) <= 0) {
+                        $this->likeObjectId($postId['1'], $account->access_token);
+                        Log::info('like object_id : ' . $postId['1']);
+                        Post::saveObjectidLiked($postId['1'], $account->id);
                     }
                 }
             }
@@ -57,28 +64,29 @@ class HomeController extends Controller
 
     public function getObjectId($token)
     {
-        $posts ='';
+        $posts = '';
         try {
-            $client = new Client(["base_uri"=>"https://graph.facebook.com/v3.2/"]);
+            $client = new Client(["base_uri" => "https://graph.facebook.com/v3.2/"]);
             $res = $client->request('GET', 'me/home', [
                 'query' => [
                     'access_token' => $token,
                     'limit' => 5
                 ],
             ]);
-            $posts =  json_decode($res->getBody(),true);
+            $posts = json_decode($res->getBody(), true);
         } catch (RequestException $e) {
             $exception = $e->getResponse()->getBody();
             $exception = json_decode($exception);
-            Token::deleteTokenInvalid($token);
+            AccountFb::deleteTokenInvalid($token);
         }
         return $posts;
     }
-    public function likeObjectId($object_id,$token)
+
+    public function likeObjectId($object_id, $token)
     {
         try {
-            $client = new Client(["base_uri"=>"https://graph.facebook.com/"]);
-            $url = $object_id.'/likes';
+            $client = new Client(["base_uri" => "https://graph.facebook.com/"]);
+            $url = $object_id . '/likes';
             $res = $client->request('POST', $url, [
                 'query' => [
                     'access_token' => $token,
