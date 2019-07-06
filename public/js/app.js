@@ -1910,7 +1910,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      listActionAccount: [],
+      Account: {
+        account_id: '',
+        name_account: '',
+        object_id: '',
+        created_at: ''
+      }
+    };
+  },
+  created: function created() {
+    //setInterval(()=> this.getListRecentAction() , 3000);
+    this.getListRecentAction();
+  },
+  methods: {
+    getListRecentAction: function getListRecentAction() {
+      var _this = this;
+
+      console.log('thuc hien cap nhat');
+      this.listActionAccount = [];
+      axios.get('api/post/get-list-recent-actions').then(function (response) {
+        if (response.data.status == 200) {
+          _this.listActionAccount.push(response.data.listAction);
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -49246,26 +49277,64 @@ var render = function() {
       _c("div", { staticClass: "card" }, [
         _vm._m(0),
         _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "comment-widgets", staticStyle: { height: "430px" } },
-          [
-            _c("div", { staticClass: "d-flex flex-row comment-row m-t-0" }, [
-              _c("div", { staticClass: "p-2" }, [
-                _c("img", {
-                  staticClass: "rounded-circle",
-                  attrs: {
-                    src: "web/assets/images/users/2.jpg",
-                    alt: "user",
-                    width: "50"
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _vm._m(1)
-            ])
-          ]
-        )
+        Object.keys(_vm.listActionAccount).length != 0
+          ? _c(
+              "div",
+              {
+                staticClass: "comment-widgets",
+                staticStyle: { height: "430px" }
+              },
+              _vm._l(_vm.listActionAccount[0], function(item, key) {
+                return _c(
+                  "div",
+                  { staticClass: "d-flex flex-row comment-row m-t-0" },
+                  [
+                    _c("div", { staticClass: "p-2" }, [
+                      _c("img", {
+                        staticClass: "rounded-circle",
+                        attrs: {
+                          src: "web/assets/images/users/2.jpg",
+                          alt: "user",
+                          width: "50"
+                        }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "comment-text w-100" }, [
+                      _c("h6", { staticClass: "font-medium" }, [
+                        _vm._v(_vm._s(item.name_account))
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "m-b-15 d-block",
+                          attrs: {
+                            target: "_blank",
+                            href: "https://facebook.com/" + item.object_id
+                          }
+                        },
+                        [_vm._v("facebook.com/" + _vm._s(item.object_id))]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "comment-footer" }, [
+                        _c("span", { staticClass: "text-muted float-right" }, [
+                          _vm._v(_vm._s(item.created_at))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          { staticClass: "label label-success label-rounded" },
+                          [_vm._v("Liked")]
+                        )
+                      ])
+                    ])
+                  ]
+                )
+              }),
+              0
+            )
+          : _vm._e()
       ])
     ])
   ])
@@ -49277,30 +49346,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-body" }, [
       _c("h4", { staticClass: "card-title" }, [_vm._v("Recent Actions")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "comment-text w-100" }, [
-      _c("h6", { staticClass: "font-medium" }, [_vm._v("James Anderson")]),
-      _vm._v(" "),
-      _c("span", { staticClass: "m-b-15 d-block" }, [
-        _vm._v(
-          "Lorem Ipsum is simply dummy text of the printing and type setting industry. "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "comment-footer" }, [
-        _c("span", { staticClass: "text-muted float-right" }, [
-          _vm._v("April 14, 2016")
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "label label-success label-rounded" }, [
-          _vm._v("Liked")
-        ])
-      ])
     ])
   }
 ]

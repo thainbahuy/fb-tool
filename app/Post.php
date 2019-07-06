@@ -16,7 +16,10 @@ class Post extends Model
 
     public static function checkObjectidIsLiked($object_id, $account_id)
     {
-        return DB::select('select 1 from post where object_id = ? and account_id= ?', [$object_id, $account_id]);
+        return DB::table('post')
+            ->where('object_id','=',$object_id)
+            ->where('account_id','=',$account_id)
+            ->count();
     }
 
     public static function getTotalPostLiked ()
@@ -33,6 +36,7 @@ class Post extends Model
             ->select('account_id','name_account','object_id','post.created_at')
             ->join('account_fb','account_fb.id','=','post.account_id')
             ->where(['status' => 'liked'])
+            ->orderBy('post.created_at','desc')
             ->get();
     }
 }

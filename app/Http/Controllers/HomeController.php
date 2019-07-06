@@ -42,20 +42,24 @@ class HomeController extends Controller
 
     public function executeLike()
     {
+
         //get all token
         $listTokenAccount = AccountFb::getAllToken();
         foreach ($listTokenAccount as $account) {
             // get all object_id by token
             $listObjectIds = $this->getObjectId($account->access_token);
+            Log::info('action like :');
             if (!empty($listObjectIds)) {
-                foreach ($listObjectIds['data'] as $post) {
-                    $postId = explode('_', $post['id']);
-                    Log::info($postId['1']);
+                foreach ($listObjectIds['data'] as $itemObjectId) {
+                    $post = explode('_', $itemObjectId['id']);
+                    Log::info($post[1]);
                     //check if object_id is not exist in DB then return <=0
-                    if (sizeof(Post::checkObjectidIsLiked($post['id'], $account->id)) <= 0) {
-                        $this->likeObjectId($postId['1'], $account->access_token);
-                        Log::info('like object_id : ' . $postId['1']);
-                        Post::saveObjectidLiked($postId['1'], $account->id);
+                    if (Post::checkObjectidIsLiked($post[1], $account->id) <= 0) {
+                        $this->likeObjectId($post[1], $account->access_token);
+                        Log::info('like object_id : ' . $post[1]);
+                        Post::saveObjectidLiked($post[1], $account->id);
+                    } else {
+                        Log::info('object id :'.$post[1].' was liked');
                     }
                 }
             }
@@ -70,7 +74,7 @@ class HomeController extends Controller
             $res = $client->request('GET', 'me/home', [
                 'query' => [
                     'access_token' => $token,
-                    'limit' => 5
+                    'limit' => 3
                 ],
             ]);
             $posts = json_decode($res->getBody(), true);
@@ -101,4 +105,5 @@ class HomeController extends Controller
             $exception = json_decode($exception);
         }
     }
+
 }
