@@ -43,7 +43,7 @@
             }
         },
         created(){
-            //setInterval(()=> this.getListRecentAction() , 3000);
+            // setInterval(()=> this.getListRecentAction() , 3000);
             this.getListRecentAction();
         },
         methods :{
@@ -52,7 +52,7 @@
                 this.listActionAccount = [];
                 axios.get('api/post/get-list-recent-actions')
                     .then(response => {
-                        if (response.data.status == 200) {
+                        if (response.data.code == 200) {
                             this.listActionAccount.push(response.data.listAction);
                         }
                     }).catch(error => {

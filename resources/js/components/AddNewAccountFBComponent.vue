@@ -55,6 +55,7 @@
                             <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add new
                                 Account
                             </button>
+                            <button type="button" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
                         </form>
                     </div>
                 </div>
@@ -96,7 +97,7 @@
                     name: this.name,
                     accesstoken: this.accesstoken
                 }).then(response => {
-                    if (response.data.status == 200) {
+                    if (response.data.code == 200) {
                         this.noti = 'Add new account success !';
                         this.isDisplay = 1;
                     }
@@ -109,7 +110,7 @@
             getTotalUser() {
                 axios.get('api/account/get-total')
                     .then(response => {
-                        if (response.data.status == 200) {
+                        if (response.data.code == 200) {
                             this.totalUser = response.data.total;
                         }
                     }).catch(error => {
@@ -119,7 +120,7 @@
             getTotalPostliked() {
                 axios.get('api/post/get-total')
                     .then(response => {
-                        if (response.data.status == 200) {
+                        if (response.data.code == 200) {
                             this.totalPostLike = response.data.totalPost;
                         }
                     }).catch(error => {

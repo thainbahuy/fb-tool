@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('ltr/index');
+});
+
+Route::get('/login', function () {
+    return view('ltr/login');
 });
 Route::get('/like', 'HomeController@executeLike');

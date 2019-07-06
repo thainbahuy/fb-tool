@@ -19,25 +19,25 @@ class HomeController extends Controller
         $accessToken = $request->get('accesstoken');
         AccountFb::addToken($name, $accessToken);
         return response()->json(['result' => 'add success',
-            'status' => Response::HTTP_OK], Response::HTTP_OK);
+            'code' => Response::HTTP_OK], Response::HTTP_OK);
     }
 
     public function getTotalUser()
     {
         $totalUser = AccountFb::getTotalUser();
-        return response()->json(['total' => $totalUser, 'status' => Response::HTTP_OK], Response::HTTP_OK);
+        return response()->json(['total' => $totalUser, 'code' => Response::HTTP_OK], Response::HTTP_OK);
     }
 
     public function getTotalPostLiked()
     {
         $totalPost = Post::getTotalPostLiked();
-        return response()->json(['totalPost' => $totalPost, 'status' => Response::HTTP_OK], Response::HTTP_OK);
+        return response()->json(['totalPost' => $totalPost, 'code' => Response::HTTP_OK], Response::HTTP_OK);
     }
 
     public function getListRecentAction()
     {
         $listAction = Post::getListRecentAction();
-        return response()->json(['listAction' => $listAction, 'status' => Response::HTTP_OK], Response::HTTP_OK);
+        return response()->json(['listAction' => $listAction, 'code' => Response::HTTP_OK], Response::HTTP_OK);
     }
 
     public function executeLike()

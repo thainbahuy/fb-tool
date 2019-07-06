@@ -22,3 +22,4 @@ Route::get('post/get-total','HomeController@getTotalPostLiked');
 Route::get('post/get-list-recent-actions','HomeController@getListRecentAction');
 
 
+Route::post('authentication/login','Auth\LoginController@login');
