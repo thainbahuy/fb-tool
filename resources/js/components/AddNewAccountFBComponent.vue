@@ -54,7 +54,9 @@
                             </div>
                             <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add Token
                             </button>
-                            <button type="button" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
+<!--                            <a class="btn btn-lg btn-social btn-facebook" :href="'http://localhost:8000/auth/redirect/facebook'">-->
+<!--                                <i class="fa fa-facebook fa-fw"></i> Sign in with Facebook-->
+<!--                            </a>-->
                         </form>
                     </div>
                 </div>

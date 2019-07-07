@@ -1763,6 +1763,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 //isDisplay = 1 (show), = 0 (hidden)
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -49172,10 +49174,8 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Add Token\n                        ")]
-              ),
-              _vm._v(" "),
-              _vm._m(1)
+                [_vm._v("Add Token\n                            ")]
+              )
             ])
           ])
         ])
@@ -49199,16 +49199,6 @@ var staticRenderFns = [
         }
       },
       [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-fb", attrs: { type: "button" } },
-      [_c("i", { staticClass: "fab fa-facebook-f pr-1" }), _vm._v(" Facebook")]
     )
   }
 ]

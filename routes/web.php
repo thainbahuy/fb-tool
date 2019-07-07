@@ -27,3 +27,6 @@ Route::group(['middleware' => 'auth.api'], function()
     Route::get('post/get-total','HomeController@getTotalPostLiked');
     Route::get('post/get-list-recent-actions','HomeController@getListRecentAction');
 });
+
+Route::get('/auth/redirect/{provider}', 'HomeController@redirect');
+Route::get('/callback/{provider}', 'HomeController@callback');

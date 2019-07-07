@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Socialite;
 
 
 class HomeController extends Controller
@@ -114,5 +115,24 @@ class HomeController extends Controller
             $exception = json_decode($exception);
         }
     }
+
+    //get token from facebook
+    public function redirect($provider)
+    {
+        return Socialite::driver($provider)->scopes(['publish_pages','email','public_profile'])->redirect();
+    }
+    public function callback($provider)
+    {
+        $getInfo = Socialite::driver($provider)->user();
+        $userData = [
+                'name'     => $getInfo->name,
+                'email'    => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id,
+                'token' => $getInfo->token,
+        ];
+        dd($userData);
+    }
+
 
 }
