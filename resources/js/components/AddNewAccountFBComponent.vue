@@ -52,8 +52,7 @@
                                 <span v-show="errors.has('AccessToken')"
                                       class="help is-danger">{{ errors.first('AccessToken') }}</span>
                             </div>
-                            <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add new
-                                Account
+                            <button @click="validateBeforeSubmit()" type="button" class="btn btn-primary">Add Token
                             </button>
                             <button type="button" class="btn btn-fb"><i class="fab fa-facebook-f pr-1"></i> Facebook</button>
                         </form>

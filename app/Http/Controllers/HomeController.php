@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
+
+    public function showHomePage(Request $request){
+        if ($request->session()->has('dataUser')){
+            return view('ltr/index');
+        }else{
+            return redirect('login');
+        }
+    }
+
     public function addNewAccount(Request $request)
     {
         $name = $request->get('name');

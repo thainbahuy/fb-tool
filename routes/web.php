@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('ltr/index');
-});
+Route::get('/home', 'HomeController@showHomePage');
 
-Route::get('/login', function () {
-    return view('ltr/login');
-});
-Route::get('/like', 'HomeController@executeLike');
+Route::get('/login','Auth\LoginController@showLoginForm');
+
+Route::post('/login','Auth\LoginController@login');
+
+Route::get('/logout', 'Auth\LoginController@logout');
+
+//Route::get('/like', 'HomeController@executeLike');
