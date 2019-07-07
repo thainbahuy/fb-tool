@@ -1792,7 +1792,7 @@ __webpack_require__.r(__webpack_exports__);
     addNewAccountFb: function addNewAccountFb() {
       var _this2 = this;
 
-      axios.post('api/account/add', {
+      axios.post('account/add', {
         name: this.name,
         accesstoken: this.accesstoken
       }).then(function (response) {
@@ -1809,7 +1809,7 @@ __webpack_require__.r(__webpack_exports__);
     getTotalUser: function getTotalUser() {
       var _this3 = this;
 
-      axios.get('api/account/get-total').then(function (response) {
+      axios.get('account/get-total').then(function (response) {
         if (response.data.code == 200) {
           _this3.totalUser = response.data.total;
         }
@@ -1820,7 +1820,7 @@ __webpack_require__.r(__webpack_exports__);
     getTotalPostliked: function getTotalPostliked() {
       var _this4 = this;
 
-      axios.get('api/post/get-total').then(function (response) {
+      axios.get('post/get-total').then(function (response) {
         if (response.data.code == 200) {
           _this4.totalPostLike = response.data.totalPost;
         }
@@ -1932,7 +1932,7 @@ __webpack_require__.r(__webpack_exports__);
 
       console.log('thuc hien cap nhat');
       this.listActionAccount = [];
-      axios.get('api/post/get-list-recent-actions').then(function (response) {
+      axios.get('post/get-list-recent-actions').then(function (response) {
         if (response.data.code == 200) {
           _this.listActionAccount.push(response.data.listAction);
         }

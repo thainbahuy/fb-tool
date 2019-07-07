@@ -92,7 +92,7 @@
                 });
             },
             addNewAccountFb() {
-                axios.post('api/account/add', {
+                axios.post('account/add', {
                     name: this.name,
                     accesstoken: this.accesstoken
                 }).then(response => {
@@ -107,7 +107,7 @@
                 this.getTotalUser();
             },
             getTotalUser() {
-                axios.get('api/account/get-total')
+                axios.get('account/get-total')
                     .then(response => {
                         if (response.data.code == 200) {
                             this.totalUser = response.data.total;
@@ -117,7 +117,7 @@
                 });
             },
             getTotalPostliked() {
-                axios.get('api/post/get-total')
+                axios.get('post/get-total')
                     .then(response => {
                         if (response.data.code == 200) {
                             this.totalPostLike = response.data.totalPost;

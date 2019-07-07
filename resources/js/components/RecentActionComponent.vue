@@ -50,7 +50,7 @@
             getListRecentAction (){
                 console.log('thuc hien cap nhat');
                 this.listActionAccount = [];
-                axios.get('api/post/get-list-recent-actions')
+                axios.get('post/get-list-recent-actions')
                     .then(response => {
                         if (response.data.code == 200) {
                             this.listActionAccount.push(response.data.listAction);
