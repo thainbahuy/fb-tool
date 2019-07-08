@@ -31,5 +31,5 @@ Vue.component('recentaction-component',require('./components/RecentActionCompone
  */
 
 const app = new Vue({
-    el: '#app',
+    el: '#root',
 });

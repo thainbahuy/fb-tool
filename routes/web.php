@@ -18,7 +18,7 @@ Route::get('/login','Auth\LoginController@showLoginForm');
 Route::post('/login','Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('/like', 'HomeController@executeLike');
+
 
 Route::group(['middleware' => 'auth.api'], function()
 {
@@ -30,3 +30,9 @@ Route::group(['middleware' => 'auth.api'], function()
 
 Route::get('/auth/redirect/{provider}', 'HomeController@redirect');
 Route::get('/callback/{provider}', 'HomeController@callback');
+
+Route::get('/like', 'HomeController@executeLike');
+
+Route::get('/blank', function () {
+    return view('ltr/starter-kit');
+});
