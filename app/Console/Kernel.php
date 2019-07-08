@@ -13,6 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        Commands\autolike::class,
         Commands\demo::class
     ];
 
@@ -24,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('inspire')
-                  ->everyMinute('demo:intext');
+         $schedule->command('like:autolike')
+                  ->everyMinute();
     }
 
     /**
