@@ -1925,7 +1925,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
-    // setInterval(()=> this.getListRecentAction() , 3000);
     this.getListRecentAction();
   },
   methods: {

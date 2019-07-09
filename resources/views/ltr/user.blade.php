@@ -77,7 +77,7 @@
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="ti-more"></i>
                     </a>
                 </div>
@@ -162,7 +162,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Dashboard</h4>
+                        <h4 class="page-title">List User</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -171,7 +171,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="#">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">user</li>
                                 </ol>
                             </nav>
                         </div>
@@ -185,37 +185,36 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Email campaign chart -->
-                <!-- ============================================================== -->
-                <div id="root">
-                    <!-- account -->
-                    <addaccountfb-component></addaccountfb-component>
-                    <!-- recent action -->
-                    <recentaction-component></recentaction-component>
-
-                </div>
-                <!-- ============================================================== -->
-                <!-- Email campaign chart -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Ravenue - page-view-bounce rate -->
-                <!-- ============================================================== -->
-
-                <!-- ============================================================== -->
-                <!-- Ravenue - page-view-bounce rate -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
                 <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th class="border-top-0">NAME</th>
+                                        <th class="border-top-0">DATE ADD</th>
+                                        <th class="border-top-0"></th>
 
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
 
+                                        <td class="txt-oflo">Elite admin</td>
+                                        <td class="txt-oflo">April 18, 2017</td>
+                                        <td class="txt-oflo">
+                                            <a href="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -241,7 +240,7 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-     <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
     <script src="{{asset('web/assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('web/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
@@ -254,7 +253,6 @@
     <script src="{{asset('web/dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->
     <script src="{{asset('web/dist/js/custom.min.js')}}"></script>
-
 </body>
 
 </html>

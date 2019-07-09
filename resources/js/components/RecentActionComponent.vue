@@ -43,7 +43,6 @@
             }
         },
         created(){
-            // setInterval(()=> this.getListRecentAction() , 3000);
             this.getListRecentAction();
         },
         methods :{

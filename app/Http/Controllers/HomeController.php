@@ -17,7 +17,17 @@ class HomeController extends Controller
 
     public function showHomePage(Request $request){
         if ($request->session()->has('dataUser')){
-            return view('ltr/index');
+            $data = ['dataUser' => $request->session()->get('dataUser')];
+            return view('ltr/index',$data);
+        }else{
+            return redirect('login');
+        }
+    }
+
+    public function showUserPage(Request $request){
+        if ($request->session()->has('dataUser')){
+            $data = ['dataUser' => $request->session()->get('dataUser')];
+            return view('ltr/user',$data);
         }else{
             return redirect('login');
         }
@@ -114,6 +124,10 @@ class HomeController extends Controller
             $exception = $e->getResponse()->getBody();
             $exception = json_decode($exception);
         }
+    }
+
+    public function deleteAllPostLiked(){
+        Post::truncatePost();
     }
 
     //get token from facebook
