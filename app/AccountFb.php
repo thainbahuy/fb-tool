@@ -28,4 +28,11 @@ class AccountFb extends Model
     {
         return DB::delete('delete from account_fb where access_token = ?', [$token]);
     }
+
+    public static function deleteAccountById($id)
+    {
+        return DB::table('account_fb')
+            ->where('id' ,'=', $id)
+            ->delete();
+    }
 }

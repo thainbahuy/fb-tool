@@ -134,7 +134,7 @@
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        @if (trim('huydeptrai') == trim($dataUser['username']))
+                        @if (1 == trim($dataUser['role']))
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/user')}}" aria-expanded="false">
                                     <i class="mdi mdi-account-network"></i>

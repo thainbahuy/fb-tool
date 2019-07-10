@@ -20,9 +20,9 @@ class LoginController extends Controller
     {
         $username = $request->get('username');
         $password = $request->get('password');
-        if (User::getDataLogin($username, $password) > 0) {
+        if (User::checkDataLogin($username, $password) > 0) {
             Log::info('save session');
-            $this->saveSession($request);
+            $this->saveSession($request,User::getDataLogin($username, $password));
             return redirect('/home');
         } else {
             $request->session()->flash('alert-warning', 'Incorrect Username and Password');
@@ -41,8 +41,10 @@ class LoginController extends Controller
         $request->session()->forget('dataUser');
     }
 
-    private function saveSession(Request $request){
-        $dataUser = ['username' => $request->get('username'), 'password' => $request->get('password')];
+    private function saveSession(Request $request,$dataLogin){
+        $dataUser = ['username' => $dataLogin[0]->username,
+            'password' => $dataLogin[0]->password,
+            'role' => $dataLogin[0]->role];
         $request->session()->put('dataUser' , $dataUser);
     }
 

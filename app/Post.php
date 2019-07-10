@@ -39,4 +39,12 @@ class Post extends Model
             ->orderBy('post.created_at','desc')
             ->get();
     }
+
+    public static function getListAccount()
+    {
+        return DB::table('post')->select('account_fb.id','name_account',DB::raw('count(object_id) as total'))
+            ->join('account_fb','account_fb.id','=','post.account_id')
+            ->groupBy('name_account','account_fb.id')
+            ->get();
+    }
 }

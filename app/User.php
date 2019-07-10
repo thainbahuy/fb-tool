@@ -11,11 +11,20 @@ use Illuminate\Support\Facades\DB;
 class User extends Model
 {
 
-    public static function getDataLogin($username,$password)
+    public static function checkDataLogin($username,$password)
     {
         return DB::table('users')
             ->where('username','=',$username)
             ->where('password','=',$password)
             ->count();
+    }
+
+    public static function getDataLogin($username,$password)
+    {
+        return DB::table('users')
+            ->select('*')
+            ->where('username','=',$username)
+            ->where('password','=',$password)
+            ->get();
     }
 }

@@ -134,7 +134,7 @@
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                        @if (trim('huydeptrai') == trim($dataUser['username']))
+                        @if (1 == trim($dataUser['role']))
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/user')}}" aria-expanded="false">
                                     <i class="mdi mdi-account-network"></i>
@@ -190,25 +190,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="example">
                                     <thead>
-                                    <tr>
-                                        <th class="border-top-0">NAME</th>
-                                        <th class="border-top-0">DATE ADD</th>
-                                        <th class="border-top-0"></th>
+                                        <tr>
+                                            <th class="border-top-0">NAME</th>
+                                            <th class="border-top-0">Total Post liked</th>
+                                            <th class="border-top-0">Action</th>
 
-                                    </tr>
+                                        </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
+                                    @foreach($dataAccount as $key => $item)
+                                        <tr id="{{'row_'.$key}}">
 
-                                        <td class="txt-oflo">Elite admin</td>
-                                        <td class="txt-oflo">April 18, 2017</td>
-                                        <td class="txt-oflo">
-                                            <a href="btn btn-danger">Delete</a>
-                                        </td>
-                                    </tr>
-
+                                            <td class="txt-oflo">{{$item->name_account}}</td>
+                                            <td class="txt-oflo">{{$item->total}}</td>
+                                            <td class="txt-oflo">
+                                                <button onclick="deleteAccount('{{$key}}' , {{$item->id}})" class="btn btn-danger">Delete</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -240,7 +241,6 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="js/app.js"></script>
     <script src="{{asset('web/assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('web/assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
@@ -253,6 +253,25 @@
     <script src="{{asset('web/dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->
     <script src="{{asset('web/dist/js/custom.min.js')}}"></script>
+    <script>
+        function deleteAccount(rowId , idAcc){
+            $.ajax({
+                url: '{{url('account/delete')}}',
+                data: {
+                    id: idAcc,
+                },
+                type: 'Post',
+
+            }).done(function (response) {
+                if (response == 1){
+                    $('#row_'+rowId).remove();
+                }else{
+                    console.log('error with serve');
+                }
+            });
+        }
+    </script>
+
 </body>
 
 </html>

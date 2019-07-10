@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Socialite;
 
@@ -16,21 +17,27 @@ class HomeController extends Controller
 {
 
     public function showHomePage(Request $request){
-        if ($request->session()->has('dataUser')){
-            $data = ['dataUser' => $request->session()->get('dataUser')];
-            return view('ltr/index',$data);
-        }else{
-            return redirect('login');
-        }
+//        if ($request->session()->has('dataUser')){
+//            $data = ['dataUser' => $request->session()->get('dataUser')];
+//            return view('ltr/index',$data);
+//        }else{
+//            return redirect('login');
+//        }
+        $data = ['dataUser' => $request->session()->get('dataUser')];
+        return view('ltr/index',$data);
     }
 
-    public function showUserPage(Request $request){
-        if ($request->session()->has('dataUser')){
-            $data = ['dataUser' => $request->session()->get('dataUser')];
-            return view('ltr/user',$data);
-        }else{
-            return redirect('login');
-        }
+    public function showAccountPage(Request $request){
+//        if ($request->session()->has('dataUser')){
+//            $data = ['dataUser' => $request->session()->get('dataUser'),
+//                'dataAccount' => Post::getListAccount()];
+//            return view('ltr/user',$data);
+//        }else{
+//            return redirect('login');
+//        }
+        $data = ['dataUser' => $request->session()->get('dataUser'),
+            'dataAccount' => Post::getListAccount()];
+        return view('ltr/user',$data);
     }
 
     public function addNewAccount(Request $request)
@@ -58,6 +65,15 @@ class HomeController extends Controller
     {
         $listAction = Post::getListRecentAction();
         return response()->json(['listAction' => $listAction, 'code' => Response::HTTP_OK], Response::HTTP_OK);
+    }
+
+    public function getListAccount()
+    {
+        dd(Post::getListAccount());
+    }
+
+    public function deleteAccountById(Request $request){
+        return AccountFb::deleteAccountById($request->get('id'));
     }
 
     public function executeLike()

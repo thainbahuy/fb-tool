@@ -15,15 +15,17 @@
 //Route::get('/callback/{provider}', 'HomeController@callback');
 
 //web
-Route::get('/', 'HomeController@showHomePage');
-Route::get('/home', 'HomeController@showHomePage');
-Route::get('/user', 'HomeController@showUserPage');
+
+
+
+
 
 Route::get('/login','Auth\LoginController@showLoginForm');
 Route::post('/login','Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
+Route::post('account/delete', 'HomeController@deleteAccountById');
 //vuejs
 Route::group(['middleware' => 'auth.api'], function()
 {
@@ -37,3 +39,9 @@ Route::group(['middleware' => 'auth.api'], function()
 // cron tab
 Route::get('cron/like', 'HomeController@executeLike');
 Route::get('cron/deleteAllPosts', 'HomeController@deleteAllPostLiked');
+
+Route::group(['middleware' => 'auth.web'], function () {
+    Route::get('/', 'HomeController@showHomePage');
+    Route::get('/home', 'HomeController@showHomePage');
+    Route::get('/user', 'HomeController@showAccountPage');
+});
