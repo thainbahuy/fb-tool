@@ -16,7 +16,7 @@ class AccountFb extends Migration
         Schema::create('account_fb', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name_account');
-            $table->string('access_token');
+            $table->text('access_token');
             $table->timestamps();
         });
     }
